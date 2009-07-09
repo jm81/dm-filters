@@ -1,7 +1,0 @@
-= dm-filters
-
-Description goes here.
-
-== Copyright
-
-Copyright (c) 2009 Jared Morgan. See LICENSE for details.
