@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'extlib'
 
 # This module enables a property to be filtered on save into another property,
 # using per-row and/or per-property filters. The syntax when defining a property
