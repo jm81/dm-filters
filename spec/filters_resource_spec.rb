@@ -18,12 +18,12 @@ describe Filters::Resource do
         
     it "should add :to property if not defined" do
       @model.property(:body, String, :filter => {:to => :html2, :with => "Markdown"})
-      MockContent.properties['html2'].should be_kind_of(DataMapper::Property)
+      @model.properties.named?('html2').should be_true
     end
 
     it "should not add :with property if not defined" do
       @model.property(:body, String, :filter => {:to => :html, :with => :filters2})
-      MockContent.properties['filters2'].should be_kind_of(DataMapper::Property)
+      @model.properties.named?(:filters2).should be_true
     end
   end
 end
