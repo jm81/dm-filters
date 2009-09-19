@@ -1,5 +1,5 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
-require File.expand_path(File.dirname(__FILE__) + '/../../lib/filters/linebreaker')
+require 'spec_helper'
+require 'filters/linebreaker'
 
 describe Linebreaker do
 

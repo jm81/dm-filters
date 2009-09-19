@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'extlib'
 
 # This module enables a property to be filtered on save into another property,
@@ -12,6 +11,7 @@ require 'extlib'
 # should be defined before to filtered property.
 
 module Filters
+  VERSION = "0.2.0"
   
   # A hash, with each entry of the form:
   # Filter name (used in +filters+ property) => 
