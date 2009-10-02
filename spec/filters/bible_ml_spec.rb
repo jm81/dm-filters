@@ -68,6 +68,20 @@ describe BibleML do
       "<a href='http://www.biblegateway.com/passage/?search=exodus%205'>Full Chapter</a>"
   end
   
+  it "should convert fg:ref tag without label to link" do
+    BibleML.new('<fg:ref p="Exodus 5:1-5" />').
+    references.
+    to_s.should ==
+      "<a href='http://www.biblegateway.com/passage/?search=exodus%205:1-5'>Exodus 5:1-5</a>"
+  end
+  
+  it "should convert fg:ref tag with label to link" do
+    BibleML.new('<fg:ref p="Exodus 5:1-5">This passage</fg:ref>').
+    references.
+    to_s.should ==
+      "<a href='http://www.biblegateway.com/passage/?search=exodus%205:1-5'>This passage</a>"
+  end
+  
   it "should create link from reference with verses" do
     BibleML.new('').bg_link("Genesis 1:10").should ==
       "http://www.biblegateway.com/passage/?search=genesis%201:10"

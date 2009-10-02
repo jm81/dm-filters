@@ -36,6 +36,7 @@ class BibleML
       strip_comments.
       block_quotes.
       inline_quotes.
+      references.
       wikipedia_links.
       to_s
     txt = RubyPants.new(txt).to_html
@@ -123,6 +124,24 @@ class BibleML
       quote << REXML::Text.new(")\n")
       
       iq_el.parent.replace_child(iq_el, quote)
+    end
+    self
+  end
+  
+  def references
+    @xml.elements.each("//fg:ref") do | ref_el |
+      label = ''
+      
+      if ref_el.has_elements? || ref_el.has_text? 
+        ref_el.children.each do | child |
+          label << child.to_s
+        end
+      end
+      
+      label = label.empty? ? nil : label.to_s
+      a_tag = reference_a(ref_el.attributes['p'], ref_el.attributes['v'], label)
+      
+      ref_el.parent.replace_child(ref_el, a_tag)
     end
     self
   end
