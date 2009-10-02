@@ -40,6 +40,7 @@ class BibleML
       to_s
     txt = RubyPants.new(txt).to_html
     txt = RDiscount.new(txt).to_html
+    txt.gsub(/&amp;amp;/, '&amp;') # Get rid of double &amp's
   end
   
   # Convert fg:pp tags to Primary Passage links
