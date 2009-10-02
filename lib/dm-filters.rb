@@ -11,7 +11,7 @@ require 'extlib'
 # should be defined before to filtered property.
 
 module Filters
-  VERSION = "0.2.0"
+  VERSION = "0.2.1"
   
   # A hash, with each entry of the form:
   # Filter name (used in +filters+ property) => 
