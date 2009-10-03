@@ -20,7 +20,7 @@ module Filters
   # Classes are assumed to respond to +to_html+.
   AVAILABLE_FILTERS = {
     'Smartypants' => [['rubypants', 'RubyPants']],
-    'Markdown' => [['rdiscount', 'RDiscount'], ['bluecloth', 'BlueCloth']],
+    'Markdown' => [['maruku', 'Maruku'], ['rdiscount', 'RDiscount'], ['bluecloth', 'BlueCloth']],
     'Textile' => [['redcloth', 'RedCloth']],
     'BibleML' => [[File.dirname(__FILE__) + '/filters/bible_ml', 'BibleML']],
     'Linebreaker' => [[File.dirname(__FILE__) + '/filters/linebreaker', 'Linebreaker']],
