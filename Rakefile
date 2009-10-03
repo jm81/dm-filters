@@ -4,8 +4,12 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "dm-filters"
-    gem.summary = %Q{TODO}
+    gem.name = "jm81-dm-filters"
+    gem.summary = %Q{Apply text filters to DataMapper properties}
+    gem.description = <<EOF
+This module enables a property in a DataMapper::Resource class to be filtered 
+on save into another property, using per-row and/or per-property filters
+EOF
     gem.email = "jmorgan@morgancreative.net"
     gem.homepage = "http://github.com/jm81/dm-filters"
     gem.authors = ["Jared Morgan"]
@@ -13,7 +17,7 @@ begin
     gem.add_dependency('dm-core', '>= 0.10.0')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
-
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
