@@ -1,5 +1,3 @@
-require 'extlib'
-
 # This module enables a property to be filtered on save into another property,
 # using per-row and/or per-property filters. The syntax when defining a property
 # is:
@@ -11,7 +9,7 @@ require 'extlib'
 # should be defined before to filtered property.
 
 module Filters
-  VERSION = "0.3.0"
+  VERSION = "0.4.0"
   
   # A hash, with each entry of the form:
   # Filter name (used in +filters+ property) => 
@@ -39,7 +37,8 @@ module Filters
   end
   
   def self.get_filter(name)
-    name = name.strip.camel_case
+    # Camelize name; copied from ActiveSupport's #camelize
+    name = name.strip.gsub(/\/(.?)/) { "::#{$1.upcase}" }.gsub(/(?:^|_)(.)/) { $1.upcase }
     info = AVAILABLE_FILTERS[name]
     return(nil) unless info
       
